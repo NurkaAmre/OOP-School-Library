@@ -2,7 +2,7 @@ class Person
   attr_reader :id
   attr_accessor :name, :age
 
-  def initilialize(name = 'Unknown', age, parent_permission: true)
+  def initilialize(name: 'Unknown', age, parent_permission: true)
     @id = Random.rand(1..100)
     @name = name
     @age = age
