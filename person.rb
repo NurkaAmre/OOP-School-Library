@@ -1,4 +1,4 @@
-class Person
+class Person < Nameable
   attr_accessor :id, :name, :age
 
   def initilialize(id, age, name: 'Unknown', parent_permission: true)
@@ -16,5 +16,9 @@ class Person
 
   def of_age?
     return true if @age >= 18
+  end
+
+  def correct_name
+    raise NotImplementedError
   end
 end
