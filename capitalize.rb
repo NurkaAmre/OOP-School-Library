@@ -1,7 +1,7 @@
 require './base_decorator'
 
-class Capitalize < Basedecorator
+class CapitalizeDecorator < Basedecorator
   def correct_name
-    super.capitalize
+    @nameable.correct_name.capitalize
   end
 end
