@@ -6,9 +6,9 @@
 
 > Describe your project in 1 or 2 sentences.
 
-**[School library]** is a
+**[School library]** is a allows to user add book rent book and
 
-## 🛠 Built With <a name="built-with"></a>
+## 🛠 Built With RUBY <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -53,7 +53,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](NOT READY YET)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -81,14 +81,10 @@ Example command:
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  cd OOP-School-Library
+  git clone git@github.com:NurkaAmre/OOP-School-Library.git
 ```
---->
 
 ### Install
 
@@ -147,17 +143,13 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Nurgul**
 
-👤 **Author2**
+- GitHub: [@githubhandle](https://github.com/NurkaAmre)
+- Twitter: [@twitterhandle](https://twitter.com/AmreNurgul)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/amre-nurgul/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
