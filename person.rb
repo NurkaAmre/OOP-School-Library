@@ -12,7 +12,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @rental = []
+    @rentals = []
     super()
   end
 
@@ -24,8 +24,8 @@ class Person < Nameable
     @name
   end
 
-  def add_rental(date, person)
-    Rental.new(date, self, person)
+  def add_rental(date, book)
+    @rentals << Rental.new(date, book, self)
   end
 
   private
@@ -34,3 +34,4 @@ class Person < Nameable
     return true if @age >= 18
   end
 end
+

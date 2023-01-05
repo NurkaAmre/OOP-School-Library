@@ -1,0 +1,106 @@
+require './student'
+require './teacher'
+require './book'
+require './rental'
+
+OPTIONS = {
+    '1' => :list_books,
+    '2' => :list_people,
+    '3' => :create_person,
+    '4' => :create_book,
+    '5' => :create_rental,
+    '6' => :list_rental,
+    '7' => :quit
+}.freeze
+
+class Main
+    attr_accessor :people :books :rentals
+    def initialize
+        @people = []
+        @books = []
+        @rental = []
+    end
+    
+    def menu_display
+      puts 'Please choose an option by enterin a number:'
+      puts '1 - List all books'
+      puts '2 - List all people'
+      puts '3 - Create a person'
+      puts '4 - Create a book'
+      puts '5 - Create a rental'
+      puts '6 - List all rentals for a given person id'
+      puts '7 - Exit'
+    end
+
+    def list_books
+      @books.each do |book|
+        puts "Title: #{book.title}, Author: #{book.author}"
+      end
+    end
+
+    def list_people
+        @people.each do |person|
+        puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+
+    def create_person
+        puts 'Do you want to create student (press 1) or teacher (press2)?'
+        choice = gets.chomp.to_i
+        case choice
+        when 1
+            add_student
+        when 2
+            add_teacher
+        else
+            puts 'Invalid number eob digidiktin balasi try again'
+            create_person
+        end
+    end
+
+    def add_student
+        print 'Age: '
+        age = gets.chomp.to_i
+
+        print 'Name: '
+        name = gets.chomp.to_s
+
+        print 'Are you have 18? [Y/N]: '
+        permission = gets.chomp
+        if person_permission.capitalize == 'N'
+            @people.push(Student.new(person_age, name: person_name, parent_permission: false))
+        else
+            @people.push(Student.new(person_age, name: person_name))
+        end
+        puts 'Student "#{name}" who is "#{age}" years old registered to our library!'
+    end
+
+    def add_teacher
+        print 'Age: '
+        age = gets.chomp.to_i
+
+        print 'Name: '
+        name = gets.chomp.to_s
+
+        print 'Specialization: '
+        person_specialization = gets.chomp.to_s
+        @people.push(Teacher.new(person_age, person_specialization, name: person_name))
+        puts "Angry teacher named '#{name}' aged '#{age}' special at '#{specialization}' was registered again!"
+    end
+
+    def create_book
+      print 'Title: '
+      book_title = gets.chomp.to_s
+      print 'Author: '
+      book_author = gets.chomp.to_s
+      @books.push(Book.new(book_title, book_author))
+      puts 'Congratulations, Book created successfully'
+    end
+
+    def create_rental
+
+    end
+
+    def list_rental
+
+    end
+end
