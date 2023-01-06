@@ -13,4 +13,3 @@ class Book
     @rentals << Rental.new(date, self, person)
   end
 end
-
