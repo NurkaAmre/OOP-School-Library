@@ -1,143 +1,101 @@
-require './student'
-require './teacher'
+require './person'
 require './book'
 require './rental'
+require './student'
+require './teacher'
+require 'colorize'
 
-OPTIONS = {
-  '1' => :list_books,
-  '2' => :list_people,
-  '3' => :create_person,
-  '4' => :create_book,
-  '5' => :create_rental,
-  '6' => :list_rental,
-  '7' => :quit
-}.freeze
-
-class Main
+class App
   def initialize
-    @people = []
-    @books = []
     @rentals = []
+    @books = []
+    @persons = []
   end
 
-  def menu_display
-    puts 'Please choose an option by enterin a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
-  end
-
-  def choose_select
-    loop do
-      puts ''
-      print 'Choose the options pls: '
-      menu_display
-      choice = gets.chomp
-      promp = OPTIONS[choice]
-
-      if promp == :quit
-        puts 'Bye'
-        break
-      elsif promp
-        send(promp)
-      else
-        puts 'Invalid eyob digitin balasy, try again'
+  def list_all_books
+    if @books.empty?
+      puts 'There are no books listed, please enter a book name and author'.red
+    else
+      @books.each_with_index do |book, index|
+        puts "(#{index}) Title: #{book.title} || Author: #{book.author}"
       end
     end
   end
 
-  def list_books
-    @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}"
+  def list_all_persons
+    if @persons.empty?
+      puts 'There are no persons listed'
+    else
+      @persons.each_with_index do |person, index|
+        puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}".green
+      end
     end
   end
 
-  def list_people
-    @people.each do |person|
-      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-
-    def create_person
-      puts 'Do you want to create student (press 1) or teacher (press2)?'
-      choice = gets.chomp.to_i
-      case choice
-      when 1
-        add_student
-      when 2
-        add_teacher
-      else
-        puts 'Invalid number eob digidiktin balasi try again'
-        create_person
-      end
-    end
-
-    def add_student
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    creation = gets.chomp
+    case creation
+    when '1'
       print 'Age: '
-      age = gets.chomp.to_i
-
+      stu_age = gets.chomp
       print 'Name: '
-      name = gets.chomp.to_s
-
-      print 'Are you have 18? [Y/N]: '
-      permission = gets.chomp
-      if person_permission.capitalize == 'N'
-        @people.push(Student.new(person_age, name: person_name, parent_permission: false))
-      else
-        @people.push(Student.new(person_age, name: person_name))
-      end
-      puts %(Student "#{name}" who is "#{age}" years old registered to our library!)
-    end
-
-    def add_teacher
+      stu_name = gets.chomp
+      print 'Has parents permission [Y/N]: '
+      permission = gets.chomp.downcase
+      parent_permission = permission == 'y'
+      @persons.push(Student.new(stu_name, stu_age, parent_permission))
+    when '2'
       print 'Age: '
-      age = gets.chomp.to_i
-
+      teacher_age = gets.chomp
       print 'Name: '
-      name = gets.chomp.to_s
-
+      teacher_name = gets.chomp
       print 'Specialization: '
-      person_specialization = gets.chomp.to_s
-      @people.push(Teacher.new(person_age, person_specialization, name: person_name))
-      puts "Angry teacher named '#{name}' aged '#{age}' special at '#{specialization}' was registered again!"
+      specialization = gets.chomp
+      @persons.push(Teacher.new(teacher_age, teacher_name, specialization))
     end
-
-    def create_book
-      print 'Title: '
-      book_title = gets.chomp.to_s
-      print 'Author: '
-      book_author = gets.chomp.to_s
-      @books.push(Book.new(book_title, book_author))
-      puts 'Congratulations, Book created successfully'
-    end
-
-    def create_rental
-      puts 'Select a book from the following list by number'
-      @books.each_with_index do |object, index|
-        puts "#{index} Title: '#{object.title}', Author: #{object.author}"
-      end
-      book_number = gets.chomp.to_i
-      puts 'Select a person from the following list by number (not id)'
-      @people.each_with_index do |object, index|
-        puts "#{index} [#{object.class}] Name: #{object.name}, ID: #{object.id}, Age: #{object.age}"
-      end
-      person_number = gets.chomp.to_i
-      print 'Date: '
-      date = gets.chomp.to_s
-      @rentals.push(Rental.new(@books[book_number], @people[person_number], date))
-      puts 'Rental created successfully'
-    end
+    puts 'Person created successfully'.green
   end
 
-  def list_rental
-    print 'ID of person: '
+  def create_book
+    print 'Enter book title: '
+    title = gets.chomp
+    puts
+
+    print 'Enter author name: '
+    author = gets.chomp
+    puts
+
+    @books.push(Book.new(title, author))
+    puts 'Book created successfully'.green
+  end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    list_all_books
+    book_number = gets.chomp.to_i
+
+    puts 'Select a person from the following list by number (not id)'
+    list_all_persons
+    person_number = gets.chomp.to_i
+
+    print 'Date: '
+    date = gets.chomp
+
+    @rentals.push(Rental.new(date, @books[book_number], @persons[person_number]))
+
+    puts 'Rental created successfully'.yellow
+  end
+
+  def list_rentals_for_id
+    puts 'ID of person: '
     person_id = gets.chomp.to_i
-    puts 'Rentals:'
-    @rentals.each do |object|
-      puts "Date: #{object.date}, Book '#{object.book.title}' by #{object.book.author}" if object.person.id == person_id
+    @rentals.each do |rental|
+      if rental.person.id.to_i == person_id
+        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} rented by #{rental.person.name}"
+      else
+        puts 'Nothing matches'.red
+      end
     end
   end
 end
