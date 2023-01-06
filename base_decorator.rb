@@ -5,7 +5,6 @@ class Basedecorator < Nameable
 
   def initialize(nameable)
     @nameable = nameable
-
     super()
   end
 
