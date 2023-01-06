@@ -4,6 +4,7 @@ require './rental'
 require './student'
 require './teacher'
 require 'colorize'
+require 'pry'
 
 class App
   def initialize
@@ -38,12 +39,13 @@ class App
     case creation
     when '1'
       print 'Age: '
-      stu_age = gets.chomp
+      stu_age = gets.chomp.to_s
       print 'Name: '
       stu_name = gets.chomp
       print 'Has parents permission [Y/N]: '
       permission = gets.chomp.downcase
       parent_permission = permission == 'y'
+      binding.pry
       @persons.push(Student.new(stu_name, stu_age, parent_permission))
     when '2'
       print 'Age: '
