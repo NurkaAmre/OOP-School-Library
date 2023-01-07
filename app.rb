@@ -4,6 +4,7 @@ require './rental'
 require './student'
 require './teacher'
 require 'colorize'
+require 'pry'
 
 class App
   def initialize
@@ -38,7 +39,7 @@ class App
     case creation
     when '1'
       print 'Age: '
-      stu_age = gets.chomp
+      stu_age = gets.chomp.to_i
       print 'Name: '
       stu_name = gets.chomp
       print 'Has parents permission [Y/N]: '
@@ -92,9 +93,9 @@ class App
     person_id = gets.chomp.to_i
     @rentals.each do |rental|
       if rental.person.id.to_i == person_id
-        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} rented by #{rental.person.name}"
+        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} rented by #{rental.person.name}."
       else
-        puts 'Nothing matches'.red
+        puts 'Success'.blue
       end
     end
   end
