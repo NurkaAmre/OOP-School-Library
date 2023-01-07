@@ -39,13 +39,12 @@ class App
     case creation
     when '1'
       print 'Age: '
-      stu_age = gets.chomp.to_s
+      stu_age = gets.chomp.to_i
       print 'Name: '
       stu_name = gets.chomp
       print 'Has parents permission [Y/N]: '
       permission = gets.chomp.downcase
       parent_permission = permission == 'y'
-      binding.pry
       @persons.push(Student.new(stu_name, stu_age, parent_permission))
     when '2'
       print 'Age: '
@@ -94,9 +93,9 @@ class App
     person_id = gets.chomp.to_i
     @rentals.each do |rental|
       if rental.person.id.to_i == person_id
-        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} rented by #{rental.person.name}"
+        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} rented by #{rental.person.name}."
       else
-        puts 'Nothing matches'.red
+        puts 'Success'.blue
       end
     end
   end
