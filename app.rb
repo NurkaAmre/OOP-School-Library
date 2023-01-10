@@ -8,9 +8,9 @@ require 'pry'
 
 class App
   def initialize
-    @rentals = []
-    @books = []
-    @persons = []
+    @rentals = readdata.new.readrentals
+    @books = readdata.new.readbooks
+    @persons =  readdata.new.readpersons
   end
 
   def list_all_books

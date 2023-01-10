@@ -1,0 +1,24 @@
+ [
+    { 
+        "id": "870",
+        "name": "Gatsby", 
+        "age": "3", 
+        "parent_permission": true,
+        "type": "Student"
+    },
+    { 
+        "id": "78",
+        "name": "Dick", 
+        "age": "21",
+        "parent_permission": false,
+        "type": "Student" 
+        
+    },
+    {
+        "id": "346",
+        "name": "Ressy",
+        "age": "37",
+        "parent_permission": false,
+        "type": "Teacher"
+    }
+]
