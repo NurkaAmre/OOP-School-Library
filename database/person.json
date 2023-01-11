@@ -1,0 +1,18 @@
+[
+  {
+    "id": 70,
+    "type": "Student",
+    "name": "Aybars",
+    "age": 6
+  },
+  {
+    "id": 20,
+    "type": "Teacher",
+    "name": "Ary",
+    "age": "25",
+    "rentals": [
+
+    ],
+    "specialization": "Manikur"
+  }
+]

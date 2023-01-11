@@ -5,30 +5,35 @@ require './student'
 require './teacher'
 require 'colorize'
 require 'pry'
+require 'json'
+require './data'
 
 class App
+  include Data
   def initialize
-    @rentals = []
-    @books = []
-    @persons = []
+    @rentals = load_rentals
+    @books = load_books
+    @persons = load_people
   end
 
   def list_all_books
+    @books = load_books
     if @books.empty?
       puts 'There are no books listed, please enter a book name and author'.red
     else
       @books.each_with_index do |book, index|
-        puts "(#{index}) Title: #{book.title} || Author: #{book.author}"
+        puts "(#{index}) Title: #{book['title']} || Author: #{book['author']}".red
       end
     end
   end
 
   def list_all_persons
+    @persons = load_people
     if @persons.empty?
       puts 'There are no persons listed'
     else
       @persons.each_with_index do |person, index|
-        puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}".green
+        puts "#{index}) Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".green
       end
     end
   end
@@ -45,7 +50,14 @@ class App
       print 'Has parents permission [Y/N]: '
       permission = gets.chomp.downcase
       parent_permission = permission == 'y'
-      @persons.push(Student.new(stu_name, stu_age, parent_permission))
+      add_student = Student.new(stu_name, stu_age, parent_permission)
+      @persons << {
+        id: add_student.id,
+        type: add_student.class,
+        name: add_student.name,
+        age: add_student.age
+      }
+      save_person(@persons)
     when '2'
       print 'Age: '
       teacher_age = gets.chomp
@@ -53,7 +65,16 @@ class App
       teacher_name = gets.chomp
       print 'Specialization: '
       specialization = gets.chomp
-      @persons.push(Teacher.new(teacher_age, teacher_name, specialization))
+      add_teacher = Teacher.new(teacher_age, teacher_name, specialization)
+      @persons << {
+        id: add_teacher.id,
+        type: add_teacher.class,
+        name: add_teacher.name,
+        age: add_teacher.age,
+        rentals: add_teacher.rentals,
+        specialization: add_teacher.specialization
+      }
+      save_person(@persons)
     end
     puts 'Person created successfully'.green
   end
@@ -66,9 +87,10 @@ class App
     print 'Enter author name: '
     author = gets.chomp
     puts
-
-    @books.push(Book.new(title, author))
+    add_book = Book.new(title, author)
+    @books << { title: add_book.title, author: add_book.author }
     puts 'Book created successfully'.green
+    save_book(@books)
   end
 
   def create_rental
@@ -82,21 +104,29 @@ class App
 
     print 'Date: '
     date = gets.chomp
-
-    @rentals.push(Rental.new(date, @books[book_number], @persons[person_number]))
-
+    add_rental = Rental.new(date, @books[book_number], @persons[person_number])
+    @rentals << {
+      date: add_rental.date,
+      person_id: add_rental.person['id'],
+      person_name: add_rental.person['name'],
+      title: add_rental.book['title'],
+      author: add_rental.book['author']
+    }
     puts 'Rental created successfully'.yellow
+    save_rental(@rentals)
   end
 
   def list_rentals_for_id
-    puts 'ID of person: '
+    @rentals = load_rentals
+    print 'ID of person: '
     person_id = gets.chomp.to_i
-    @rentals.each do |rental|
-      if rental.person.id.to_i == person_id
-        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author} rented by #{rental.person.name}."
-      else
-        puts 'Success'.blue
-      end
+
+    @rentals.select do |rental|
+      next unless person_id == rental['person_id']
+
+      print "Date: #{rental['date']}, Book: #{rental['title']} "
+      print 'by '
+      puts "#{rental['author']} rented by #{rental['person_name']} "
     end
   end
 end
