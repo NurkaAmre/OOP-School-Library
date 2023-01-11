@@ -9,6 +9,7 @@ require 'json'
 require './data'
 
 class App
+  include Data
   def initialize
     @rentals = load_rentals
     @books = load_books
@@ -21,7 +22,7 @@ class App
       puts 'There are no books listed, please enter a book name and author'.red
     else
       @books.each_with_index do |book, index|
-        puts "(#{index}) Title: #{book['title']} || Author: #{book['author']}"
+        puts "(#{index}) Title: #{book['title']} || Author: #{book['author']}".red
       end
     end
   end
@@ -32,7 +33,7 @@ class App
       puts 'There are no persons listed'
     else
       @persons.each_with_index do |person, index|
-        puts "#{index}) [#{person['class']}] Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".green
+        puts "#{index}) Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".green
       end
     end
   end
@@ -109,8 +110,7 @@ class App
       person_id: add_rental.person['id'],
       person_name: add_rental.person['name'],
       title: add_rental.book['title'],
-      author: add_rental.book['author'],
-      rentals: add_rental.person['rentals']
+      author: add_rental.book['author']
     }
     puts 'Rental created successfully'.yellow
     save_rental(@rentals)
@@ -118,14 +118,15 @@ class App
 
   def list_rentals_for_id
     @rentals = load_rentals
-    puts 'ID of person: '
+    print 'ID of person: '
     person_id = gets.chomp.to_i
-    @rentals.each do |rental|
-      if rental.person.id.to_i == person_id
-        puts "Date: #{rental['date']}, Book: #{rental['title']} by #{rental['author']} rented by #{rental['name']}."
-      else
-        puts 'Success'.blue
-      end
+
+    @rentals.select do |rental|
+      next unless person_id == rental['person_id']
+
+      print "Date: #{rental['date']}, Book: #{rental['title']} "
+      print 'by '
+      puts "#{rental['author']} rented by #{rental['person_name']} "
     end
   end
 end

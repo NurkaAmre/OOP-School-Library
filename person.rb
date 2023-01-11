@@ -4,7 +4,7 @@ require './capitalize'
 require './rental'
 
 class Person < Nameable
-  attr_accessor :name, :age, :rental
+  attr_accessor :name, :age, :rentals, :parent_permission
   attr_reader :id
 
   def initialize(age, name, parent_permission: true)
@@ -12,7 +12,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @rental = []
+    @rentals = []
     super()
   end
 
@@ -24,8 +24,9 @@ class Person < Nameable
     @name
   end
 
-  def add_rental(date, book)
-    @rentals << Rental.new(date, book, self)
+  def add_rentals(rental)
+    @rentals.push(rental)
+    rentals.person = self
   end
 
   private

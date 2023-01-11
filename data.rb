@@ -30,7 +30,7 @@ module Data
   end
 
   def save_rental(rentals)
-    File.write('./database.rentals.json', JSON.pretty_generate(rentals))
+    File.write('./database/rentals.json', JSON.pretty_generate(rentals))
   end
 
   def load_rentals

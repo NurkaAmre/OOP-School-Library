@@ -1,5 +1,8 @@
 require './app'
 require './menu'
+require 'json'
+require './data'
+require 'colorize'
 
 def main
   app = App.new
@@ -21,7 +24,7 @@ def main
     when 6
       app.list_rentals_for_id
     when 7
-      puts 'Thank you For using this app!'
+      puts 'Thank you For using this app!'.blue
       exit
     end
   end

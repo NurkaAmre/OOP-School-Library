@@ -1,44 +1,23 @@
- [
-    { 
-        "date": "01/02/2023",
-        "book": {
-            "title": "The Great Gatsby",
-            "author": "F. Scott Fitzgerald"
-        },
-        "person": {
-            "id": 1,
-            "name": "Gatsby",
-            "age": 3,
-            "parent_permission": true,
-            "type": "Student" 
-        }
-    },
-    { 
-        "date": "01/05/2023",
-        "book": {
-            "title": "Ruby on rails", 
-            "author": "Hiea"
-        },
-        "person": {
-            "id": 2,
-            "name": "Yerik",
-            "age": 6,
-            "parent_permission": false,
-            "type": "student" 
-        } 
-    },
-    {
-        "date": "12/23/2022",
-        "book": {
-            "title": "Moby-Dick",
-            "author": "Herman Melville" 
-        },
-        "person": {
-            "id": "346",
-            "name": "Ressy",
-            "age": "37",
-            "parent_permission": false,
-            "type": "Teacher"
-        }
-    }       
+[
+  {
+    "date": "1111",
+    "person_id": 70,
+    "person_name": "Aybars",
+    "title": "Cooking recipe",
+    "author": "Jama sama'"
+  },
+  {
+    "date": "333",
+    "person_id": 20,
+    "person_name": "Ary",
+    "title": "Microverse",
+    "author": "HHUUU"
+  },
+  {
+    "date": "11",
+    "person_id": 20,
+    "person_name": "Ary",
+    "title": "Cooking recipe",
+    "author": "Jama sama'"
+  }
 ]
