@@ -69,7 +69,7 @@ class App
       @persons << {
         id: add_teacher.id,
         type: add_teacher.class,
-        name: add_teacher.name,
+        name: add_teacher.name
         age: add_teacher.age,
         rentals: add_teacher.rentals,
         specialization: add_teacher.specialization
