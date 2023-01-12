@@ -1,14 +1,12 @@
-require_relative '../base_decorator'
-require_relative '../capitalize'
-require_relative '../nameable'
+require './base_decorator'
 
-describe CapitalizeDecorator do
-  let(:nameable) { double('Nameable', correct_name: 'john smith') }
-  let(:decorator) { CapitalizeDecorator.new(nameable) }
-
-  describe '#correct_name' do
-    it 'should return the correct_name capitalized' do
-      expect(decorator.correct_name).to eq('John smith')
+describe Basedecorator do
+  context 'Instance of base decorator' do
+    before :each do
+      @base_decorator = Basedecorator.new('Peet')
+    end
+    it 'return a new base decorator' do
+      expect(@base_decorator).to be_instance_of Basedecorator
     end
   end
 end

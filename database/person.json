@@ -36,5 +36,45 @@
 
     ],
     "specialization": "It"
+  },
+  {
+    "id": 48,
+    "type": "Student",
+    "name": "qq",
+    "age": 1
+  },
+  {
+    "id": 87,
+    "type": "Teacher",
+    "name": "bbb",
+    "age": "234",
+    "rentals": [
+
+    ],
+    "specialization": "hiu"
+  },
+  {
+    "id": 57,
+    "name": "Nur",
+    "age": 34
+  },
+  {
+    "id": 52,
+    "name": "mol",
+    "age": "67",
+    "rentals": [
+
+    ],
+    "specialization": "eat"
+  },
+  {
+    "id": [
+      26,
+      "ee",
+      77,
+      true
+    ],
+    "name": "ee",
+    "age": 77
   }
 ]

@@ -26,5 +26,46 @@
     "person_name": "Laura",
     "title": "Cooking recipe",
     "author": "Jama sama'"
+  },
+  {
+    "date": "01/12/12",
+    "person_id": 87,
+    "person_name": "bbb",
+    "title": "as",
+    "author": "asa"
+  },
+  {
+    "date": "00",
+    "person_id": 28,
+    "person_name": "Lala",
+    "title": "Cooking recipe",
+    "author": "Jama sama'",
+    "rentals": [
+      "#<Rental:0x00000258a2816008>"
+    ]
+  },
+  {
+    "date": "2346",
+    "person_id": 84,
+    "person_name": 86,
+    "title": "Cooking recipe",
+    "author": "Jama sama'",
+    "rentals": [
+      [
+        "#<Rental:0x000001797cecdb18>"
+      ]
+    ]
+  },
+  {
+    "date": "45",
+    "person_id": 70,
+    "person_name": 86,
+    "title": "Microverse",
+    "author": "HHUUU",
+    "rentals": [
+      [
+        "#<Rental:0x00000270072d09a0>"
+      ]
+    ]
   }
 ]

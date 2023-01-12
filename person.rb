@@ -4,8 +4,8 @@ require './capitalize'
 require './rental'
 
 class Person < Nameable
-  attr_accessor :name, :age, :rentals, :parent_permission
-  attr_reader :id
+  attr_accessor :name, :age
+  attr_reader :id, :rentals
 
   def initialize(age, name, parent_permission: true)
     @id = Random.rand(1..100)

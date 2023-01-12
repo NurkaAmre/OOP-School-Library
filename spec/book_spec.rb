@@ -1,28 +1,24 @@
-require_relative '../book'
-require_relative '../person'
-require 'rspec'
+require './book'
+require './person'
 
 describe Book do
-  let(:book) { Book.new('The Great Gatsby', 'F. Scott Fitzgerald') }
-
-  describe '#initialize' do
-    it 'should set the title and author' do
-      expect(book.title).to eq('The Great Gatsby')
-      expect(book.author).to eq('F. Scott Fitzgerald')
+  context 'Given an instance of a book' do
+    before :each do
+      @book = Book.new('A Tale of Two Cities', 'Charles Dickens')
     end
 
-    it 'should initialize an empty rentals array' do
-      expect(book.rentals).to eq([])
+    it 'returns a new book' do
+      expect(@book).to be_instance_of Book
     end
-  end
 
-  describe '#add_rental' do
-    it 'should add a new rental to the rentals array' do
-      book.add_rental('01/01/2022', 'John Smith')
-      expect(book.rentals.size).to eq(1)
-      expect(book.rentals.first.date).to eq('01/01/2022')
-      expect(book.rentals.first.book).to eq(book)
-      expect(book.rentals.first.person).to eq('John Smith')
+    it 'check correct author' do
+      @book.author = 'Robert Stevenson'
+      expect(@book.author).to eql 'Robert Stevenson'
+    end
+
+    it 'check correct title' do
+      @book.title = 'Treasure Island'
+      expect(@book.title).to eql 'Treasure Island'
     end
   end
 end

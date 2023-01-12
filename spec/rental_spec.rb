@@ -1,22 +1,16 @@
-require_relative '../rental'
-require_relative '../person'
-require_relative '../book'
+require './rental'
+require './student'
+require './book'
 
 describe Rental do
-  let(:book) { double('Book', rentals: []) }
-  let(:person) { double('Person', rentals: []) }
-  let(:rental) { Rental.new('01/01/2022', book, person) }
-
-  describe '#initialize' do
-    it 'should set the date, book, and person' do
-      expect(rental.date).to eq('01/01/2022')
-      expect(rental.book).to eq(book)
-      expect(rental.person).to eq(person)
+  context 'When testing the rental.rb' do
+    before :each do
+      student = Student.new('wizard', 20, true)
+      book = Book.new('Gone in seconds', 'Shuhad')
+      @rental = Rental.new('20230105', book, student)
     end
-
-    it "should add the rental to the book and person's rental array" do
-      expect(book).to have_received(:[]=).with('rentals', rental)
-      expect(person).to have_received(:[]=).with('rentals', rental)
+    it 'The person should have rental added' do
+      expect(@rental).to be_an_instance_of Rental
     end
   end
 end

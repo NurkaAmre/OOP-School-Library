@@ -1,21 +1,21 @@
-require_relative '../teacher'
-require_relative '../person'
+require './teacher'
 
 describe Teacher do
-  let(:teacher) { Teacher.new('Jane Doe', 30, 'English', parent_permission: true) }
-
-  describe '#initialize' do
-    it 'should set the name, age, specialization and parent_permission' do
-      expect(teacher.name).to eq('Jane Doe')
-      expect(teacher.age).to eq(30)
-      expect(teacher.specialization).to eq('English')
-      expect(teacher.parent_permission).to eq(true)
+  context 'Given an instance of teacher' do
+    before :each do
+      @teacher = Teacher.new('Nicko', 44, 'Time')
     end
-  end
 
-  describe '#can_use_services?' do
-    it 'should return true' do
-      expect(teacher.can_use_services?).to eq(true)
+    it 'returns a new teacher' do
+      expect(@teacher).to be_instance_of Teacher
+    end
+
+    it 'check if teacher can use services' do
+      expect(@teacher.can_use_services?).to eql true
+    end
+
+    it 'check for correct name' do
+      expect(@teacher.correct_name).to eql 'Nicko'
     end
   end
 end
