@@ -1,7 +1,7 @@
-require_relative '../person'
-require_relative '../rental'
-require_relative '../base_decorator'
-require_relative '../nameable'
+require_relative './person'
+require_relative './rental'
+require_relative './base_decorator'
+require_relative './nameable'
 
 describe Person do
   let(:person) { Person.new(18, 'John Smith', parent_permission: true) }

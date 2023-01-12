@@ -1,5 +1,5 @@
-require_relative '../teacher'
-require_relative '../person'
+require_relative './teacher'
+require_relative './person'
 
 describe Teacher do
   let(:teacher) { Teacher.new('Jane Doe', 30, 'English', parent_permission: true) }

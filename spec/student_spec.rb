@@ -1,5 +1,6 @@
-require_relative '../student'
-require_relative '../classroom'
+require_relative './student'
+require_relative './classroom'
+require_relative './person'
 
 describe Student do
   let(:classroom) { double('Classroom', students: []) }

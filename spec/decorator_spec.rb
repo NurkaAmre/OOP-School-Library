@@ -1,6 +1,6 @@
-require_relative '../base_decorator'
-require_relative '../capitalize'
-require_relative '../nameable'
+require_relative './base_decorator'
+require_relative './capitalize'
+require_relative './nameable'
 
 describe CapitalizeDecorator do
   let(:nameable) { double('Nameable', correct_name: 'john smith') }
