@@ -14,5 +14,27 @@
 
     ],
     "specialization": "Manikur"
+  },
+  {
+    "id": 86,
+    "type": "Student",
+    "name": "Laura",
+    "age": 23
+  },
+  {
+    "id": 28,
+    "type": "Student",
+    "name": "Lala",
+    "age": 24
+  },
+  {
+    "id": 92,
+    "type": "Teacher",
+    "name": "Saboaka",
+    "age": "45",
+    "rentals": [
+
+    ],
+    "specialization": "It"
   }
 ]
