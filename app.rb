@@ -22,7 +22,7 @@ class App
       puts 'There are no books listed, please enter a book name and author'.red
     else
       @books.each_with_index do |book, index|
-        puts "(#{index}) Title: #{book['title']} || Author: #{book['author']}".red
+        puts "(#{index}) Title: #{book['title']} || Author: #{book['author']}".cyan
       end
     end
   end
@@ -33,13 +33,13 @@ class App
       puts 'There are no persons listed'
     else
       @persons.each_with_index do |person, index|
-        puts "#{index}) Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".green
+        puts "#{index}) Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".magenta
       end
     end
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '.magenta
     creation = gets.chomp
     case creation
     when '1'
@@ -78,11 +78,11 @@ class App
   end
 
   def create_book
-    print 'Enter book title: '
+    print 'Enter book title: '.cyan
     title = gets.chomp
     puts
 
-    print 'Enter author name: '
+    print 'Enter author name: '.cyan
     author = gets.chomp
     puts
     add_book = Book.new(title, author)
@@ -92,15 +92,15 @@ class App
   end
 
   def create_rental
-    puts 'Select a book from the following list by number'
+    puts 'Select a book from the following list by number'.blue
     list_all_books
     book_number = gets.chomp.to_i
 
-    puts 'Select a person from the following list by number (not id)'
+    puts 'Select a person from the following list by number (not id)'.blue
     list_all_persons
     person_number = gets.chomp.to_i
 
-    print 'Date: '
+    print 'Date: '.red
     date = gets.chomp
     book = Book.new(@books[book_number]['title'], @books[book_number]['author'])
     person = Person.new(@persons[person_number]['name'], @persons[person_number]['id'])
@@ -120,7 +120,7 @@ class App
 
   def list_rentals_for_id
     @rentals = load_rentals
-    print 'ID of person: '
+    print 'ID of person: '.green
     person_id = gets.chomp.to_i
 
     @rentals.select do |rental|

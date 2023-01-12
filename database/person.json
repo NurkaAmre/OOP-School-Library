@@ -88,5 +88,23 @@
     "type": "Teacher",
     "name": "34",
     "age": "nurka"
+  },
+  {
+    "id": 84,
+    "type": "Student",
+    "name": 2,
+    "age": "3a"
+  },
+  {
+    "id": 26,
+    "type": "Teacher",
+    "name": "56",
+    "age": "ff"
+  },
+  {
+    "id": 96,
+    "type": "Student",
+    "name": 34,
+    "age": "2e"
   }
 ]
