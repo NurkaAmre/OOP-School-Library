@@ -1,6 +1,6 @@
 require_relative '../person'
 require_relative '../rental'
-require_relative '../decorator'
+require_relative '../base_decorator'
 require_relative '../nameable'
 
 describe Person do
