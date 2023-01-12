@@ -67,5 +67,17 @@
         "#<Rental:0x00000270072d09a0>"
       ]
     ]
+  },
+  {
+    "date": "33",
+    "person_id": 56,
+    "person_name": 92,
+    "title": "Microverse",
+    "author": "HHUUU",
+    "rentals": [
+      [
+        "#<Rental:0x0000029e1f01a058>"
+      ]
+    ]
   }
 ]
