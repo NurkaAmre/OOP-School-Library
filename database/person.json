@@ -14,5 +14,79 @@
 
     ],
     "specialization": "Manikur"
+  },
+  {
+    "id": 86,
+    "type": "Student",
+    "name": "Laura",
+    "age": 23
+  },
+  {
+    "id": 28,
+    "type": "Student",
+    "name": "Lala",
+    "age": 24
+  },
+  {
+    "id": 92,
+    "type": "Teacher",
+    "name": "Saboaka",
+    "age": "45",
+    "rentals": [
+
+    ],
+    "specialization": "It"
+  },
+  {
+    "id": 48,
+    "type": "Student",
+    "name": "qq",
+    "age": 1
+  },
+  {
+    "id": 87,
+    "type": "Teacher",
+    "name": "bbb",
+    "age": "234",
+    "rentals": [
+
+    ],
+    "specialization": "hiu"
+  },
+  {
+    "id": 57,
+    "name": "Nur",
+    "age": 34
+  },
+  {
+    "id": 52,
+    "name": "mol",
+    "age": "67",
+    "rentals": [
+
+    ],
+    "specialization": "eat"
+  },
+  {
+    "id": [
+      26,
+      "ee",
+      77,
+      true
+    ],
+    "name": "ee",
+    "age": 77
+  },
+  {
+    "id": 2,
+    "type": "Student",
+    "name": 12,
+    "age": "shuhad"
+  },
+  {
+    "id": 96,
+    "type": "Teacher",
+    "name": "34",
+    "age": "nurka"
   }
 ]
