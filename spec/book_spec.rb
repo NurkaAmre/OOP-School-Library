@@ -1,22 +1,28 @@
 require_relative './book'
 require_relative './person'
-
-book = Book.new('Quran', 'Allah')
-person = Person.new(4, 'Amre', true)
+require 'rspec'
 
 describe Book do
-    context 'When creating new book' do
-        it 'should have title and author attributes' do
-            expect(book.title).to eql 'Quran'
-            expect(book.author).to eql 'Allah'
-        end
+  let(:book) { Book.new('The Great Gatsby', 'F. Scott Fitzgerald') }
+
+  describe '#initialize' do
+    it 'should set the title and author' do
+      expect(book.title).to eq('The Great Gatsby')
+      expect(book.author).to eq('F. Scott Fitzgerald')
     end
 
-    context 'When creating new book' do
-        it 'should have age, name, boolean attributes' do
-            expect(person.age).to eql 4
-            expect(person.name).to eql 'Amre'
-            expect(person.parent_permission).to eql true
-        end
+    it 'should initialize an empty rentals array' do
+      expect(book.rentals).to eq([])
     end
+  end
+
+  describe '#add_rental' do
+    it 'should add a new rental to the rentals array' do
+      book.add_rental('01/01/2022', 'John Smith')
+      expect(book.rentals.size).to eq(1)
+      expect(book.rentals.first.date).to eq('01/01/2022')
+      expect(book.rentals.first.book).to eq(book)
+      expect(book.rentals.first.person).to eq('John Smith')
+    end
+  end
 end
