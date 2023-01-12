@@ -43,14 +43,14 @@ class App
     creation = gets.chomp
     case creation
     when '1'
-      print 'Age: '
+      print 'Age: '.yellow
       stu_age = gets.chomp.to_i
-      print 'Name: '
+      print 'Name: '.yellow
       stu_name = gets.chomp
-      print 'Has parents permission [Y/N]: '
+      print 'Has parents permission [Y/N]: '.yellow
       permission = gets.chomp.downcase
       parent_permission = permission == 'y'
-      add_student = Student.new(stu_name, stu_age, parent_permission: parent_permission)
+      add_student = Student.new(stu_age, stu_name, parent_permission)
       @persons << {
         id: add_student.id,
         type: add_student.class,
@@ -59,21 +59,18 @@ class App
       }
       save_person(@persons)
     when '2'
-      print 'Age: '
+      print 'Age: '.yellow
       teacher_age = gets.chomp
-      print 'Name: '
+      print 'Name: '.yellow
       teacher_name = gets.chomp
-      print 'Specialization: '
+      print 'Specialization: '.yellow
       specialization = gets.chomp
-      add_teacher = Teacher.new(teacher_age, teacher_name, specialization)
+      add_teacher = Teacher.new(teacher_name, teacher_age, specialization)
       @persons << {
         id: add_teacher.id,
         type: add_teacher.class,
         name: add_teacher.name,
-        age: add_teacher.age,
-        # rentals: add_teacher.rentals,
-        # specialization: add_teacher.specialization
-
+        age: add_teacher.age
       }
       save_person(@persons)
     end
@@ -98,11 +95,11 @@ class App
     puts 'Select a book from the following list by number'
     list_all_books
     book_number = gets.chomp.to_i
-  
+
     puts 'Select a person from the following list by number (not id)'
     list_all_persons
     person_number = gets.chomp.to_i
-  
+
     print 'Date: '
     date = gets.chomp
     book = Book.new(@books[book_number]['title'], @books[book_number]['author'])

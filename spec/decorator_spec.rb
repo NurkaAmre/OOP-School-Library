@@ -1,4 +1,4 @@
-require './base_decorator
+require './base_decorator'
 
 describe Basedecorator do
   context 'Instance of base decorator' do

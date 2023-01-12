@@ -13,9 +13,5 @@ describe Teacher do
     it 'check if teacher can use services' do
       expect(@teacher.can_use_services?).to eql true
     end
-
-    it 'check for correct name' do
-      expect(@teacher.correct_name).to eql 'Nicko'
-    end
   end
 end

@@ -76,5 +76,17 @@
     ],
     "name": "ee",
     "age": 77
+  },
+  {
+    "id": 2,
+    "type": "Student",
+    "name": 12,
+    "age": "shuhad"
+  },
+  {
+    "id": 96,
+    "type": "Teacher",
+    "name": "34",
+    "age": "nurka"
   }
 ]

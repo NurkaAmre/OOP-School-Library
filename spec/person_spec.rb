@@ -1,6 +1,6 @@
 require './person'
 
-person = Person.new('Steve', 45)
+person = Person.new(45, 'Steve')
 
 describe Person do
   context 'When testing the Person class' do
