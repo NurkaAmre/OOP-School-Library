@@ -1,83 +1,46 @@
 [
   {
-    "date": "1111",
-    "person_id": 70,
-    "person_name": "Aybars",
-    "title": "Cooking recipe",
-    "author": "Jama sama'"
-  },
-  {
-    "date": "333",
-    "person_id": 20,
-    "person_name": "Ary",
-    "title": "Microverse",
-    "author": "HHUUU"
-  },
-  {
-    "date": "11",
-    "person_id": 20,
-    "person_name": "Ary",
-    "title": "Cooking recipe",
-    "author": "Jama sama'"
-  },
-  {
-    "date": "122",
-    "person_id": 86,
-    "person_name": "Laura",
-    "title": "Cooking recipe",
-    "author": "Jama sama'"
-  },
-  {
-    "date": "01/12/12",
-    "person_id": 87,
-    "person_name": "bbb",
-    "title": "as",
-    "author": "asa"
-  },
-  {
-    "date": "00",
+    "date": "234",
     "person_id": 28,
-    "person_name": "Lala",
-    "title": "Cooking recipe",
-    "author": "Jama sama'",
-    "rentals": [
-      "#<Rental:0x00000258a2816008>"
-    ]
-  },
-  {
-    "date": "2346",
-    "person_id": 84,
-    "person_name": 86,
-    "title": "Cooking recipe",
-    "author": "Jama sama'",
+    "person_name": null,
+    "title": null,
+    "author": null,
     "rentals": [
       [
-        "#<Rental:0x000001797cecdb18>"
+        "#<Rental:0x000001bcab5665a8>"
       ]
     ]
   },
   {
-    "date": "45",
-    "person_id": 70,
-    "person_name": 86,
-    "title": "Microverse",
-    "author": "HHUUU",
+    "date": "5",
+    "person_id": 49,
+    "person_name": 4,
+    "title": "Splat cat",
+    "author": "Rob Timmson",
     "rentals": [
       [
-        "#<Rental:0x00000270072d09a0>"
+        "#<Rental:0x000002e8740f53e8>"
       ]
     ]
   },
   {
     "date": "33",
-    "person_id": 56,
-    "person_name": 92,
-    "title": "Microverse",
-    "author": "HHUUU",
+    "person_id": 23,
+    "person_name": 4,
+    "title": "Splat cat",
+    "author": "Rob Timmson",
     "rentals": [
-      [
-        "#<Rental:0x0000029e1f01a058>"
-      ]
+      "#<Rental:0x0000023ee4665588>"
+    ]
+  },
+  {
+    "date": "00/00/0000",
+    "person_id": 91,
+    "person_name": 4,
+    "title": "Splat cat",
+    "author": "Rob Timmson",
+    "rentals": [
+      "#<Rental:0x000002aacae239a8>"
     ]
   }
 ]

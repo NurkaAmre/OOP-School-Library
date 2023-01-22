@@ -1,110 +1,20 @@
 [
   {
-    "id": 70,
+    "id": 67,
     "type": "Student",
-    "name": "Aybars",
-    "age": 6
+    "name": 4,
+    "age": "Amre"
   },
   {
-    "id": 20,
+    "id": 4,
     "type": "Teacher",
-    "name": "Ary",
-    "age": "25",
-    "rentals": [
-
-    ],
-    "specialization": "Manikur"
+    "name": "32",
+    "age": "Nurka"
   },
   {
-    "id": 86,
+    "id": 29,
     "type": "Student",
-    "name": "Laura",
-    "age": 23
-  },
-  {
-    "id": 28,
-    "type": "Student",
-    "name": "Lala",
-    "age": 24
-  },
-  {
-    "id": 92,
-    "type": "Teacher",
-    "name": "Saboaka",
-    "age": "45",
-    "rentals": [
-
-    ],
-    "specialization": "It"
-  },
-  {
-    "id": 48,
-    "type": "Student",
-    "name": "qq",
-    "age": 1
-  },
-  {
-    "id": 87,
-    "type": "Teacher",
-    "name": "bbb",
-    "age": "234",
-    "rentals": [
-
-    ],
-    "specialization": "hiu"
-  },
-  {
-    "id": 57,
-    "name": "Nur",
-    "age": 34
-  },
-  {
-    "id": 52,
-    "name": "mol",
-    "age": "67",
-    "rentals": [
-
-    ],
-    "specialization": "eat"
-  },
-  {
-    "id": [
-      26,
-      "ee",
-      77,
-      true
-    ],
-    "name": "ee",
-    "age": 77
-  },
-  {
-    "id": 2,
-    "type": "Student",
-    "name": 12,
-    "age": "shuhad"
-  },
-  {
-    "id": 96,
-    "type": "Teacher",
-    "name": "34",
-    "age": "nurka"
-  },
-  {
-    "id": 84,
-    "type": "Student",
-    "name": 2,
-    "age": "3a"
-  },
-  {
-    "id": 26,
-    "type": "Teacher",
-    "name": "56",
-    "age": "ff"
-  },
-  {
-    "id": 96,
-    "type": "Student",
-    "name": 34,
-    "age": "2e"
+    "name": 23,
+    "age": "Yura"
   }
 ]

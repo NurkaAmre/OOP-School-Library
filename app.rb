@@ -17,12 +17,12 @@ class App
   end
 
   def list_all_books
-    @books = load_books
+    @books
     if @books.empty?
-      puts 'There are no books listed, please enter a book name and author'.red
+      puts 'There are no books listed, please enter a book title and author'.red
     else
       @books.each_with_index do |book, index|
-        puts "(#{index}) Title: #{book['title']} || Author: #{book['author']}".cyan
+        puts "#{index}. Title: #{book['title']} ||  Author: #{book['author']}".cyan
       end
     end
   end
@@ -33,7 +33,7 @@ class App
       puts 'There are no persons listed'
     else
       @persons.each_with_index do |person, index|
-        puts "#{index}) Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".magenta
+        puts "#{index}. Name: #{person['name']}, ID: #{person['id']} Age: #{person['age']}".magenta
       end
     end
   end
@@ -80,11 +80,10 @@ class App
   def create_book
     print 'Enter book title: '.cyan
     title = gets.chomp
-    puts
 
     print 'Enter author name: '.cyan
     author = gets.chomp
-    puts
+
     add_book = Book.new(title, author)
     @books << { title: add_book.title, author: add_book.author }
     puts 'Book created successfully'.green
@@ -95,37 +94,36 @@ class App
     puts 'Select a book from the following list by number'.blue
     list_all_books
     book_number = gets.chomp.to_i
+    puts
 
     puts 'Select a person from the following list by number (not id)'.blue
     list_all_persons
     person_number = gets.chomp.to_i
+    puts
 
     print 'Date: '.red
     date = gets.chomp
     book = Book.new(@books[book_number]['title'], @books[book_number]['author'])
     person = Person.new(@persons[person_number]['name'], @persons[person_number]['id'])
     add_rental = Rental.new(date, book, person)
-    arr = []
     @rentals << {
       date: add_rental.date,
       person_id: add_rental.person.id,
       person_name: add_rental.person.name,
       title: add_rental.book.title,
       author: add_rental.book.author,
-      rentals: arr << add_rental.person.rentals
+      rentals: add_rental.person.rentals
     }
     puts 'Rental created successfully'.yellow
     save_rental(@rentals)
   end
 
   def list_rentals_for_id
-    @rentals = load_rentals
+    @rentals
     print 'ID of person: '.green
     person_id = gets.chomp.to_i
 
     @rentals.select do |rental|
-      next unless person_id == rental['person_id']
-
       print "Date: #{rental['date']}, Book: #{rental['title']} "
       print 'by '
       puts "#{rental['author']} rented by #{rental['person_name']} "

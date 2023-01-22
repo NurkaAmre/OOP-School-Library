@@ -3,7 +3,7 @@ require 'colorize'
 
 def menu
   puts 'Welcome to my app'.magenta
-  puts 'choose an option by entering a number: '.cyan
+  puts 'Choose an option by entering a number: '.cyan
   puts '1) List all books'.green
   puts '2) List all people'.green
   puts '3) Create a person'.green
